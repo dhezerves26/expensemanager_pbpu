@@ -107,4 +107,11 @@ public class ExpenseManagerCLI {
 
     private static void updateExpense(Scanner scanner, ExpenseManager expenseManager) {
     }
+    private static void deleteExpense(Scanner scanner, ExpenseManager expenseManager){
+        System.out.println("Kamu akan menghapus:");
+        int index = Integer.parseInt(input.nextLine());
+        System.out.println("Apa kamu yakin?");
+        System.out.print("Jawab (y/t): ");
+        String jawab = input.nextLine();
+    }
 }
