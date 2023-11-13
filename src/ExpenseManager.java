@@ -41,7 +41,29 @@ public class ExpenseManager {
     public void updateExpense(int index, Expense updatedExpense) {
         // Implement your update logic here
     }
+ public void deleteExpense(int index, Expense deleteExpense) {
+        try {
+                if (jawab.equalsIgnoreCase("y")) {
+                    // hapus data
+                    expensemanager.remove(index);
 
+                    // tulis ulang file
+                    try {
+                        expenses expense = new expenses(ExpenseManager, false);
+
+                        // write new data
+                        for (String expense : expenses) {
+                            expense.append(String.format("%s%n", expense));
+                        }
+                        PrintWriter.close();
+
+                        System.out.println("Berhasil dihapus!");
+                    } catch (IOException e) {
+                        System.out.println("Terjadi kesalahan");
+                    }
+                }
+            }
+        }
     private void saveExpensesToTxt() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(TXT_FILE_PATH))) {
             for (Expense expense : expenses) {
